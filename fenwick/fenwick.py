@@ -7,7 +7,7 @@ class FenwickTree:
         self.FT = np.zeros(N + 1).astype('int')
 
     def increment(self, i, delta):
-        while i < self.N:
+        while i <= self.N:
             self.FT[i] += delta
             i += i & -i
 
