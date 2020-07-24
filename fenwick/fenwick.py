@@ -35,5 +35,4 @@ if __name__ == '__main__':
         with open('output.txt', 'wt') as output:
             for i in range(m):
                 l, r = map(int, input.readline().split())
-                output.write(
-                    'Sum on the subrange [%d..%d] is %d.\n' % (l, r, t.sum(l, r)))
+                output.write('Sum on the subrange [%d..%d] is %d.\n' % (l, r, t.sum(l, r)))
