@@ -1,5 +1,6 @@
 # RSQ implementation using a Fenwick Tree
 
+
 import numpy as np
 
 
