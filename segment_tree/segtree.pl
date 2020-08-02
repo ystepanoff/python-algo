@@ -21,8 +21,6 @@ class SegmentTree:
         while i > 1:
             self.ST[i >> 1] = self.ST[i] + self.ST[i ^ 1]
             i >>= 1
-            
-        pass
         
     def sum(self, l, r):
         result = 0
