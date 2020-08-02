@@ -1,5 +1,6 @@
 # RSQ implementation using a Segment Tree
 
+
 import numpy as np
 
 
