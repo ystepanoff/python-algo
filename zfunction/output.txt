@@ -1,0 +1,4 @@
+pattern found at position 1
+pattern found at position 5
+pattern found at position 9
+pattern found at position 11
