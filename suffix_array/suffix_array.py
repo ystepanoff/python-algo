@@ -43,6 +43,7 @@ def lcp_array(s, p, c):
         k = max(k - 1, 0)
     return lcp
 
+
 if __name__ == '__main__':
     s = input()
     s += '$'
