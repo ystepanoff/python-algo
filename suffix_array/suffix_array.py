@@ -41,7 +41,7 @@ def lcp_array(s, p, c):
             k += 1
         lcp[c[i]] = k
         k = max(k - 1, 0)
-    return lcp
+    return lcp[1:]
 
 
 if __name__ == '__main__':
@@ -52,6 +52,6 @@ if __name__ == '__main__':
         print(x, end=' ')
     print()
     lcp = lcp_array(s, p, c)
-    for i in range(1, len(lcp)):
-        print(lcp[i], end=' ')
+    for x in lcp:
+        print(x, end=' ')
     print()
