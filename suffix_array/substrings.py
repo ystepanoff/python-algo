@@ -35,16 +35,12 @@ def preprocess(s):
     return p, c
 
 
-def compare(c, p1, p2):
+def compare(c, k_values, p1, p2):
     i1, j1 = p1
     i2, j2 = p2
     l1, l2 = j1 - i1 + 1, j2 - i2 + 1
     l = min(l1, l2)
-    k = 0
-    while (1 << k) <= l:
-        k += 1
-    k -= 1
-    k = min(k, len(c) - 1)
+    k = min(k_values[l], len(c) - 1)
     a = (c[k][i1 - 1], c[k][i1 + l - (1 << k) - 1])
     b = (c[k][i2 - 1], c[k][i2 + l - (1 << k) - 1])
     if a != b:
@@ -58,6 +54,12 @@ if __name__ == '__main__':
     s = input()
     s += '$'
     p, c = preprocess(s)
+    n = len(s)
+    k_values = [0] * (n + 1)
+    for i in range(1, n + 1):
+        k_values[i] = k_values[i - 1]
+        if i > 1 and i & (i - 1) == 0:
+            k_values[i] += 1
     # Sort the set of m substrings given as pairs (l, r) lexicographically.
     # Substring comparison is performed in O(1) time. 
     m = int(input())
@@ -65,6 +67,6 @@ if __name__ == '__main__':
     for i in range(m):
         l, r = map(int, input().split())
         pairs.append((l, r))
-    pairs = sorted(pairs, key=cmp_to_key(lambda p1, p2: compare(c, p1, p2)))
+    pairs = sorted(pairs, key=cmp_to_key(lambda p1, p2: compare(c, k_values, p1, p2)))
     for l, r in pairs:
         print(l, r)
